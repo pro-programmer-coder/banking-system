@@ -2,16 +2,16 @@ package core;
 
 import java.time.Instant;
 
-public class Transation {
+public class Transaction {
     private double amt;
     private Instant date;
 
-    public Transation(double amt, Instant date) {
+    public Transaction(double amt, Instant date) {
         this.amt = amt;
         this.date = date;
     }
 
-    public Transation(double amt) {
+    public Transaction(double amt) {
         this.amt = amt;
         this.date = Instant.now();
     }

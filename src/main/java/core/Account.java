@@ -2,18 +2,17 @@ package core;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class Account {
     private final int id;
     private final String name;
     private double balance;
-    private final AbstractList<Transation> transactions = new ArrayList<>();
+    private final AbstractList<Transaction> transactions = new ArrayList<>();
 
     public Account(int id, String name, double amt) {
         this.id = id;
         this.name = name;
-        transactions.add(new Transation(amt));
+        transactions.add(new Transaction(amt));
         this.balance = amt;
     }
 
@@ -26,17 +25,17 @@ public class Account {
     }
 
     public void credit(double amt){
-        transactions.add(new Transation(amt));
-        balance += amt;
+        transactions.add(new Transaction(amt));
+        balance = balance + amt;
     }
 
     public void debit(double amt){
-        transactions.add(new Transation(amt));
-        balance -= amt;
+        transactions.add(new Transaction(-amt));
+        balance = balance - amt;
     }
 
     public double currentBalance(){
-        return transactions.stream().mapToDouble(Transation::getAmt).sum();
+        return transactions.stream().mapToDouble(Transaction::getAmt).sum();
     }
 
     public double availableBalance(){
