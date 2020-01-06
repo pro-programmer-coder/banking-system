@@ -2,6 +2,10 @@ package tests;
 
 
 import core.Account;
+import core.CreditAccount;
+import core.IntrestRate;
+
+import java.time.Instant;
 
 public class MainUnit {
     public static void main(String[] args) {
@@ -9,7 +13,7 @@ public class MainUnit {
 
         System.out.println(account.toString());
 
-        account.credit(29);
+        account.credit(30);
 
         System.out.println(account.toString());
 
@@ -24,7 +28,7 @@ public class MainUnit {
         public static void opening_balance_test(){
             //arrange & act
             double openingBalance = 56.78;
-            Account acc = new Account(1, "Selvyn", openingBalance);
+            Account acc = new CreditAccount(1, "Selvyn", openingBalance, IntrestRate.BusinessLoan);
 
             //assert
             if (openingBalance == acc.availableBalance()

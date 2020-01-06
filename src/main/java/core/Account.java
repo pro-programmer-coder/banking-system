@@ -12,8 +12,7 @@ public class Account {
     public Account(int id, String name, double amt) {
         this.id = id;
         this.name = name;
-        transactions.add(new Transaction(amt));
-        this.balance = amt;
+        credit(amt);
     }
 
     public int getId() {
@@ -26,12 +25,12 @@ public class Account {
 
     public void credit(double amt){
         transactions.add(new Transaction(amt));
-        balance = balance + amt;
+        balance += amt;
     }
 
     public void debit(double amt){
-        transactions.add(new Transaction(-amt));
-        balance = balance - amt;
+        transactions.add(new Transaction(amt * -1));
+        balance -= amt;
     }
 
     public double currentBalance(){
@@ -51,6 +50,4 @@ public class Account {
                 ", transactions=" + transactions +
                 '}';
     }
-
-
 }
