@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Account {
     private final int id;
     private final String name;
-    private double balance;
+    protected double balance;
     private final AbstractList<Transaction> transactions = new ArrayList<>();
 
     public Account(int id, String name, double amt) {

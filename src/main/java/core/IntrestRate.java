@@ -1,8 +1,8 @@
 package core;
 
 public enum IntrestRate {
-    HomeLoan(5.67),
-    BusinessLoan(2.34);
+    HomeLoan(0.1),
+    BusinessLoan(0.2);
 
     private final double rate;
 
@@ -11,12 +11,13 @@ public enum IntrestRate {
         this.rate = rate;
     }
 
-//    public double getIntrestRate(IntrestRate rate){
-//        switch(rate){
-//            case(IntrestRate.BusinessLoan):
-//                return 2.34;
-//            case(IntrestRate.HomeLoan):
-//                return 5.67;
-//        }
-//    }
+    public static double getIntrestRate(IntrestRate rate){
+        switch(rate){
+            case BusinessLoan:
+                return BusinessLoan.rate;
+            case HomeLoan:
+                return HomeLoan.rate;
+        }
+        return 0;
+    }
 }

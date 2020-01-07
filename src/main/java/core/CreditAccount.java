@@ -8,4 +8,13 @@ public class CreditAccount extends Account{
         super(id, name, amt);
         this.intrestRate = intrestRate;
     }
+
+    @Override
+    public void debit(double amt) {
+        if(super.availableBalance() - amt < 0){
+            amt += (IntrestRate.getIntrestRate(intrestRate)*amt);
+        }
+        super.debit(amt);
+        super.availableBalance();
+    }
 }
